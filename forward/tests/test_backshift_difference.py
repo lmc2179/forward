@@ -9,6 +9,12 @@ class BackshiftTest(unittest.TestCase):
         A_shifted = [x if not np.isnan(x) else None for x in A_shifted]
         self.assertEqual(list(A_shifted), [None, 2, 4])
 
+    def test_double_backshift(self):
+        A = np.array([2, 4, 6])
+        A_shifted = backshift_difference.backshift(A, 2)
+        A_shifted = [x if not np.isnan(x) else None for x in A_shifted]
+        self.assertEqual(list(A_shifted), [None, None, 2])
+
 class DifferenceTest(unittest.TestCase):
     def test_single_difference(self):
         A = np.array([2, 4, 6])

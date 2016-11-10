@@ -1,9 +1,9 @@
 import numpy as np
 
 
-def backshift(data):
+def backshift(data, positions=1):
     backshifted_data = np.nan * np.empty(data.shape)
-    backshifted_data[1:] = data[:-1]
+    backshifted_data[positions:] = data[:-positions]
     return backshifted_data
 
 def lag_difference(data):
